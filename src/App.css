@@ -1,0 +1,68 @@
+:root {
+  --background: #060a22;
+  --primary: #8d99ec;
+  --secondary: #973719;
+  --accent: #e2e04f;
+  --text: #dfe0fa;
+}
+
+.App {
+  background: linear-gradient(to top, var(--background) 50%, var(--primary) 100%);
+
+  color: var(--text);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* justify-content: space-between; */
+  text-transform: uppercase;
+  font-weight: bold;
+
+  .container {
+    overflow: hidden;
+    position: absolute;
+    opacity: .5;
+    inset: 0;
+  }
+
+  & .App__content {
+    padding: 1rem;
+    z-index: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  & .App__mickey {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+
+    & .text-block, .Mickey {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    & .text-block {
+      padding-top: 7rem;
+    }
+
+    & h1 {
+      font-size: 9rem;
+      line-height: 7rem;
+    }
+  }
+}
+
+.Mickey {
+  max-width: 600px;
+  & .filled {
+    opacity: .2;
+    fill: var(--primary);
+  }
+  & .filling {
+    fill: var(--primary);
+  }
+}
