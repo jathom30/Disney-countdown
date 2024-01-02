@@ -51,6 +51,9 @@
   }
 
   & .App__mickey {
+    opacity: 0;
+    scale: 0.5;
+    animation: intro 1s ease-in-out 0.5s forwards;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -81,5 +84,12 @@
   }
   & .filling {
     fill: var(--primary);
+  }
+}
+
+@keyframes intro {
+  to {
+    opacity: 1;
+    scale: 1;
   }
 }
