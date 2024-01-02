@@ -7,7 +7,11 @@
 }
 
 .App {
-  background: linear-gradient(to top, var(--background) 50%, var(--primary) 100%);
+  background: linear-gradient(
+    to top,
+    var(--background) 50%,
+    var(--primary) 100%
+  );
 
   color: var(--text);
   flex-grow: 1;
@@ -21,7 +25,7 @@
   .container {
     overflow: hidden;
     position: absolute;
-    opacity: .5;
+    opacity: 0.5;
     inset: 0;
   }
 
@@ -34,13 +38,26 @@
     justify-content: space-between;
   }
 
+  & .App__castle {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   & .App__mickey {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     place-items: center;
 
-    & .text-block, .Mickey {
+    & .text-block,
+    .Mickey {
       grid-column: 1 / 2;
       grid-row: 1 / 2;
     }
@@ -59,7 +76,7 @@
 .Mickey {
   max-width: 600px;
   & .filled {
-    opacity: .2;
+    opacity: 0.2;
     fill: var(--primary);
   }
   & .filling {
