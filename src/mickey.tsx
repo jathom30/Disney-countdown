@@ -12,7 +12,7 @@ export const Mickey = ({ fill }: { fill: number }) => {
         strokeLinejoin: "round",
         strokeMiterlimit: 2,
       }}
-      viewBox="0 0 512 422"
+      viewBox="-5 -5 522 432"
     >
       <mask id="myMask">
         <path
