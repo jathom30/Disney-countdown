@@ -14,8 +14,8 @@ const today = new Date();
 function App() {
   const [draggables, setDraggables] = useLocalStorage<Record<string, { x: number; y: number }>>({
     key: 'draggables', initialValue: {
-      'https://www.icegif.com/wp-content/uploads/2023/01/icegif-55.gif': { x: 17, y: 128 },
-      'https://media1.giphy.com/media/f6ORvWUuYd0UDW5tHA/giphy.gif?cid=ecf05e47x66m1vgv3o6idenvu8rkzzmhn924l913tep1gc8e&ep=v1_gifs_search&rid=giphy.gif&ct=g': { x: 416, y: 368 },
+      'https://www.icegif.com/wp-content/uploads/2023/01/icegif-55.gif': { x: 0, y: 0 },
+      'https://media1.giphy.com/media/f6ORvWUuYd0UDW5tHA/giphy.gif?cid=ecf05e47x66m1vgv3o6idenvu8rkzzmhn924l913tep1gc8e&ep=v1_gifs_search&rid=giphy.gif&ct=g': { x: 0, y: 0 },
     }
   });
   const mouseSensor = useSensor(MouseSensor, {});
