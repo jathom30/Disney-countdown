@@ -52,7 +52,6 @@
   }
 
   & .App__mickey {
-    /* position: relative; */
     max-width: 600px;
     width: 100%;
     opacity: 0;
