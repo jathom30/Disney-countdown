@@ -1,10 +1,18 @@
-import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor, KeyboardSensor, DragEndEvent } from '@dnd-kit/core';
+import {
+  DndContext,
+  useSensor,
+  useSensors,
+  MouseSensor,
+  TouchSensor,
+  KeyboardSensor,
+  DragEndEvent,
+} from "@dnd-kit/core";
 import "./App.css";
 import { Mickey } from "./mickey";
 import castle from "./disneyCastle.jpg";
 import { CircleImages } from "./CircleImages";
-import { Droppable } from './Droppable';
-import { useLocalStorage } from './useLocalStorage';
+import { Droppable } from "./Droppable";
+import { useLocalStorage } from "./useLocalStorage";
 
 // a date object for January 26, 2024  7:45 AM EST
 const dDate = new Date(2024, 0, 26, 7, 45, 0, 0);
@@ -12,17 +20,23 @@ const startDate = new Date(2023, 11, 25, 0, 0, 0, 0);
 const today = new Date();
 
 function App() {
-  const [draggables, setDraggables] = useLocalStorage<Record<string, { x: number; y: number }>>({
-    key: 'draggables', initialValue: {
-      'https://www.icegif.com/wp-content/uploads/2023/01/icegif-55.gif': { x: 0, y: 0 },
-      'https://media1.giphy.com/media/f6ORvWUuYd0UDW5tHA/giphy.gif?cid=ecf05e47x66m1vgv3o6idenvu8rkzzmhn924l913tep1gc8e&ep=v1_gifs_search&rid=giphy.gif&ct=g': { x: 0, y: 0 },
-    }
+  const [draggables, setDraggables] = useLocalStorage<
+    Record<string, { x: number; y: number }>
+  >({
+    key: "draggables",
+    initialValue: {
+      "https://www.icegif.com/wp-content/uploads/2023/01/icegif-55.gif": {
+        x: 0,
+        y: 0,
+      },
+      "https://media1.giphy.com/media/f6ORvWUuYd0UDW5tHA/giphy.gif?cid=ecf05e47x66m1vgv3o6idenvu8rkzzmhn924l913tep1gc8e&ep=v1_gifs_search&rid=giphy.gif&ct=g":
+        { x: 0, y: 0 },
+    },
   });
   const mouseSensor = useSensor(MouseSensor, {});
   const touchSensor = useSensor(TouchSensor, {});
   const keyboardSensor = useSensor(KeyboardSensor, {});
   const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor);
-
 
   const month = dDate.toLocaleString("default", { month: "long" });
   const day = dDate.getDate();
@@ -34,31 +48,26 @@ function App() {
     Math.floor((dDate.getTime() - today.getTime()) / (1000 * 3600 * 24)) + 1;
   const percent = Math.floor((daysSinceStart / daysUntilDisney) * 100);
 
-
   const handleDragEnd = (event: DragEndEvent) => {
     // if not over droppable area, return
-    if (event.over?.id !== 'droppable') return;
+    if (event.over?.id !== "droppable") return;
     // get the draggable id
     const id = event.active.id;
-    console.log(id)
     // get the draggable position
     const deltaX = event.delta.x;
     const deltaY = event.delta.y;
     // update the state
-    setDraggables(prev => ({
+    setDraggables((prev) => ({
       ...prev,
       [id]: {
         x: prev[id].x + deltaX,
         y: prev[id].y + deltaY,
       },
     }));
-  }
+  };
 
   return (
-    <DndContext
-      sensors={sensors}
-      onDragEnd={handleDragEnd}
-    >
+    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
       <Droppable>
         <div className="App__castle">
           <img src={castle} />
@@ -71,7 +80,7 @@ function App() {
               <h1>{daysUntilDisney}</h1>
               <h2>Days</h2>
             </div>
-            {Object.keys(draggables).map(draggableId => (
+            {Object.keys(draggables).map((draggableId) => (
               <CircleImages
                 key={draggableId}
                 src={draggableId}
@@ -85,7 +94,6 @@ function App() {
         </div>
       </Droppable>
     </DndContext>
-
   );
 }
 
