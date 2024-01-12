@@ -46,7 +46,9 @@ function App() {
   );
   const daysUntilDisney =
     Math.floor((dDate.getTime() - today.getTime()) / (1000 * 3600 * 24)) + 1;
-  const percent = Math.floor((daysSinceStart / daysUntilDisney) * 100);
+  const percent = Math.floor(
+    (daysSinceStart / (daysUntilDisney + daysSinceStart)) * 100
+  );
 
   const handleDragEnd = (event: DragEndEvent) => {
     // if not over droppable area, return
