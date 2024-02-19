@@ -8,11 +8,10 @@ import {
   DragEndEvent,
 } from "@dnd-kit/core";
 import "./App.css";
-import { Mickey } from "./mickey";
-import castle from "./disneyCastle.jpg";
 import { CircleImages } from "./CircleImages";
 import { Droppable } from "./Droppable";
 import { useLocalStorage } from "./useLocalStorage";
+import { KeyIcon } from "./KeyIcon";
 
 // a date object for April 8, 2024  7:45 AM EST
 const dDate = new Date(2024, 3, 8, 0, 0, 0, 0);
@@ -30,6 +29,10 @@ function App() {
         y: 0,
       },
       "https://media1.giphy.com/media/f6ORvWUuYd0UDW5tHA/giphy.gif?cid=ecf05e47x66m1vgv3o6idenvu8rkzzmhn924l913tep1gc8e&ep=v1_gifs_search&rid=giphy.gif&ct=g":
+        { x: 0, y: 0 },
+      "https://png.pngtree.com/png-clipart/20201209/original/pngtree-cartoon-style-golden-silver-key-clipart-png-image_5671107.jpg":
+        { x: 0, y: 0 },
+      "https://us.123rf.com/450wm/biseeise/biseeise2401/biseeise240112020/222704609-illustrated-home-fitnessvector-house-design-concepts.jpg?ver=6":
         { x: 0, y: 0 },
     },
   });
@@ -72,12 +75,12 @@ function App() {
     <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
       <Droppable>
         <div className="App__castle">
-          <img src={castle} />
+          <img src="https://photos.zillowstatic.com/fp/99d752270c1641de08486ca310dfc546-uncropped_scaled_within_1536_1152.webp" />
         </div>
         <div className="App__content">
-          <p>Disney countdown</p>
           <div className="App__mickey">
-            <Mickey fill={percent} />
+            <KeyIcon fill={percent} />
+            {/* <Mickey fill={50} /> */}
             <div className="text-block">
               <h1>{daysUntilDisney}</h1>
               <h2>Days</h2>
@@ -90,6 +93,7 @@ function App() {
               />
             ))}
           </div>
+          <p>keys in our hands countdown</p>
           <p>
             {month} {day}, {year}
           </p>
