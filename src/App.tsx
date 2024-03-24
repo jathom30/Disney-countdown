@@ -13,8 +13,8 @@ import { Droppable } from "./Droppable";
 import { useLocalStorage } from "./useLocalStorage";
 import { KeyIcon } from "./KeyIcon";
 
-// a date object for April 8, 2024  7:45 AM EST
-const dDate = new Date(2024, 3, 8, 0, 0, 0, 0);
+// a date object for March 28, 2024  7:45 AM EST
+const dDate = new Date(2024, 2, 28, 0, 0, 0, 0);
 const startDate = new Date(2024, 1, 19, 0, 0, 0, 0);
 const today = new Date();
 
